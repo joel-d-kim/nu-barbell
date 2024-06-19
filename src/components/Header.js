@@ -1,20 +1,50 @@
-// src/components/Header.js
 import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
+const HeaderContainer = styled.header`
+  background: #FFFFFF;
+  padding: 0px 0;
+  box-shadow: 0 4px 2px -2px gray;
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const NavLink = styled(Link)`
+  text-decoration: none;
+  color: #141414;
+  font-weight: bold;
+  &:hover {
+    color: #000000;
+  }
+`;
+
+const ImageLink = styled(Link)`
+  display: flex;
+  align-items: center;
+`;
+const HomeButtonImage = styled.img`
+  width: 125px;
+  height: auto; 
+  cursor: pointer; 
+`;
 const Header = () => {
   return (
-    <header>
-      <h1>NYU Barbell</h1>
-      <nav>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/events">Events</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <HeaderContainer>
+      <Nav>
+        <ImageLink to="/">
+          <HomeButtonImage src="/images/NYU_BARBELL_LOGO.jpg" alt="Home" />
+        </ImageLink>
+        <NavLink to="/about">Team</NavLink>
+        <NavLink to="/events">Events</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
+      </Nav>
+    </HeaderContainer>
   );
-}
+};
 
 export default Header;

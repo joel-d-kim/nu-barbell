@@ -1,27 +1,29 @@
+// src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home'; // Correct import for default export
+import './App.css';
+import GlobalStyles from './components/styles/GlobalStyles';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './components/Home';
 import About from './components/About';
 import Events from './components/Events';
 import Contact from './components/Contact';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-        <Footer />
-      </div>
+      <GlobalStyles />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
     </Router>
   );
-}
+};
 
 export default App;
